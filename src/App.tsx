@@ -1,58 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+
 import './App.css';
+import { Button } from 'react-bootstrap';
+import { Route, Routes } from 'react-router-dom';
+import { Timeline } from './app/features/timeline/Timeline';
+import { MenuItem } from './app/features/menu-item/MenuItem';
+import { MenuMap } from './app/features/menu-item/menu-map/MenuMap';
+
+import { MenuReviews } from './app/features/menu-item/menu-reviews/MenuReviews';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    <>
+    <Routes>
+      <Route path="/" element={<Timeline />}/>
+
+      <Route path="menu" element={<MenuItem />}>
+            <Route path="map" element={<MenuMap />}/>  
+            <Route path="reviews" element={<MenuReviews />}/> 
+          
+      </Route>
+    </Routes>
+    </>
+  )
 }
 
 export default App;
