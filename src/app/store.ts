@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import selectedIngredientReducer from './features/menu-item/SelectedIngredientSlice';
 import selectedImageReducer from './features/timeline/SelectedImageSlice';
 // import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
     // counter: counterReducer,
-    selectedImage: selectedImageReducer
+    selectedImage: selectedImageReducer,
+    selectedIngredient: selectedIngredientReducer
   },
 });
 

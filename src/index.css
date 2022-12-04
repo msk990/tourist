@@ -107,5 +107,91 @@ padding: 20px 21px;
   padding: 5px 0; */
 }
 
+.tab-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top:20px;
+  padding-top: 10px;
+  padding-bottom: 20px; 
+}
 
+.tab-list li {
+  display: inline-block;
 
+}
+
+.tab-list li a {
+ text-decoration: none;
+  padding: 10px 20px 20px 21px;
+  font-weight: bold;
+  color:#000000
+}
+
+.tab-list li a.active {
+ border-bottom: 2px solid #000000;
+ }
+
+ .ing-tabs{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top:20px;
+  padding-top: 10px;
+  padding-bottom: 20px; 
+}
+ .ing-tabs li{
+  display: inline-block;
+ }
+
+ .ing-tabs li a {
+  text-decoration: none;
+   padding: 10px 17px 20px 17px;
+   font-weight: bold;
+   color:#000000
+ }
+ .ing-tabs li:first-child a {
+  text-decoration: none;
+   padding: 10px 10px 20px 21px;
+   font-weight: bold;
+   color:#000000
+ }
+ 
+ .ing-tabs li a.active {
+  border-bottom: 2px solid #000000;
+  }
+  .certificate {
+    width:30%
+  }
+
+  .nav-front {margin-top:55px; padding:10px;}
+  .nav-front-div{
+    display: inline-block;
+    border: 1px solid #D9D9D9;
+    color: #000000;
+    position: relative;
+  }
+.linkie{
+  position:absolute;
+  top: 0;
+  left:0;
+  z-index:1000
+
+}
+.wrapper { position: relative; }
+.over_map { width:100px; position: absolute; top: 10px; left: 10px; z-index: 399; background:transparent}
+.chibbi { width:100px; position:fixed; top: 0; left: 0; z-index:100}
+.chibbi-button {position:absolute; padding:4px 12px; top:100px; left: 30px; vertical-align: middle; text-align: center; background:white;}
+.green-practices{
+  padding: 10px 21px;
+}
+.practice{ 
+  padding:40px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+.w-200p{
+  width:200px;
+}
+.w-100p{
+  width:100px;
+}

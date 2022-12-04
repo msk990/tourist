@@ -6,8 +6,12 @@ import ArrowRight from "../ux/arrow-right/ArrowRight";
 import ArrowUp from "../ux/arrow-up/ArrowUp";
 
 export const Collapsable = (props:any) => {
-    const [open, setOpen] = useState(false);
+
+    const [open, setOpen] = useState(props.defaultOpen);
     const name = props.name
+ 
+
+    
     return(
         <>
         {/* <Button

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Button, Col, Collapse, Container, Row } from 'react-bootstrap'
+import { Button, Col, Collapse, Container, Modal, Row } from 'react-bootstrap'
 import { NavLink, Outlet } from 'react-router-dom'
 import Bistro from '../../common/markers/Bistro'
 import ArrowDown from '../../common/ux/arrow-down/ArrowDown'
 import ArrowRight  from '../../common/ux/arrow-right/ArrowRight'
 import Back from '../../common/ux/back/Back'
 import { Collapsable } from '../../common/collapsable/Collapsable'
-import './TabStyle.css'
+
 import { ItemFacts } from '../../common/item-facts/ItemFacts'
 import { FactItem } from '../../common/item-facts/fact-item/FactItem'
 import Sharable from '../../common/descriptive-icons/Sharable'
@@ -20,7 +20,16 @@ import Carbohydrates from '../../common/descriptive-icons/Carbohydrates'
 import { Stars } from '../../common/rating/Starts'
 import { Rating } from '../../common/rating/Rating'
 import { PairWith } from './pair-with/PairWith'
+import { ItemCategories} from './item-categories/ItemCategories'
+import { ItemInfo } from '../../common/item-info/ItemInfo'
+import { useAppDispatch, useAppSelector } from '../../hooks'
+import { changeSelectedIngredient, selIngredient } from './SelectedIngredientSlice'
+import { Timeline } from '../timeline/Timeline'
+import { MenuIngredient } from './menu-ingredient/MenuIngredient'
 export const MenuItem = () => {
+
+    const dispatch = useAppDispatch()
+    const selectedIng = useAppSelector(selIngredient);
    
     return(
       
@@ -41,61 +50,22 @@ export const MenuItem = () => {
             <img src="/imgs/salad-1.jpeg" />
         </section>
 
-        <section className="menu-item-info">
-
-            <div className="company-link">
-                <Bistro width="36px" className="me-2"/> 
-                <div className="fw-bold d-inline pt-5">Jolly Roger</div>
-                <div className="cnt-right">
-                    
-                <ArrowRight width='26px'/>
-                    
-                </div>
-            </div>
-            <div className="my-4">
-            <Rating />
-            </div>
-
-            <p className="fw-bold">TOMATO AND BUFFALO CHEESE SALAD</p>
-            <p>buffalo heart tomatoes, red & yellow cherry tomatoes, buffalo cheese, basil</p>
-
-            <div className="menu-item-price fw-bold my-4">13.50 €</div>
-
-        </section>
+            <ItemInfo 
+                company="Jolly Roger" 
+                comtype="bistro"
+                name="TOMATO AND BUFFALO CHEESE SALAD"
+                description="buffalo heart tomatoes, red & yellow cherry tomatoes, buffalo cheese, basil"
+                price="13.50"
+            
+            />
 
         
         
-        <Collapsable name="NUTRITION">
-            <ItemFacts>
-                <FactItem name="sharable among 2">
-                    <Sharable width="23px"/>
-                </FactItem>
-                <FactItem name="436 calories">
-                    <Calories width="23px"/>
-                </FactItem>
-                <FactItem name="350 g">
-                    <Weight width="23px"/>
-                </FactItem>
-                <FactItem name="22 g protein">
-                    <Protein width="23px"/>
-                </FactItem>
-                <FactItem name="nut free">
-                    <NutFree width="23px"/>
-                </FactItem>
-                <FactItem name="40 g fat">
-                    <Fat width="23px"/>
-                </FactItem>
-                <FactItem name="soy free">
-                    <SoyFree width="23px"/>
-                </FactItem>
-                <FactItem name="11 g carbohydrates">
-                    <Carbohydrates width="23px"/>
-                </FactItem>
-
-            </ItemFacts>
+        <Collapsable name="NUTRITION" defaultOpen={false}>
+          <ItemCategories />
         </Collapsable>
 
-        <Collapsable name="PAIR WITH" className="br-btm">
+        <Collapsable name="PAIR WITH" defaultOpen={false} className="br-btm">
             <ItemFacts>
                 <PairWith type="rakia" name="Burgas 63 Barrel"/>
                 <PairWith type="wine" name="Salty Hills Chardonay"/>
@@ -140,6 +110,7 @@ export const MenuItem = () => {
                     juje juje
                 </Col>
             </Row>
+
     </Container>
 </>
     )
